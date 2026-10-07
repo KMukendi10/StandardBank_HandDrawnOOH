@@ -1,0 +1,448 @@
+/* ================= BASIC RESET ================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #17213b;
+}
+
+
+/* ================= COLOURS ================= */
+
+:root {
+    --blue: #06356f;
+    --dark-blue: #052c5d;
+    --pink: #ed3d83;
+    --yellow: #f5c400;
+    --light-grey: #f4f4f4;
+}
+
+
+/* ================= IMAGE PLACEHOLDERS ================= */
+
+/* Temporary boxes for images */
+
+.image-placeholder,
+.process-image,
+.execution-image,
+.detail-image {
+    background: #d8d8d8;
+    color: #666;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: bold;
+}
+
+
+/* ================= HERO ================= */
+
+.hero {
+    background: var(--blue);
+    color: white;
+
+    min-height: 480px;
+    padding: 45px 4%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 40px;
+}
+
+
+/* Hero text */
+
+.hero-content {
+    width: 35%;
+}
+
+.brand {
+    font-size: 13px;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: 55px;
+    line-height: 0.95;
+
+    margin: 0 0 20px;
+}
+
+.pink-text {
+    color: #ff5c9c;
+    font-size: 21px;
+    line-height: 1.2;
+}
+
+.hero-description {
+    font-size: 14px;
+    line-height: 1.5;
+
+    max-width: 330px;
+}
+
+.project-info {
+    font-size: 11px;
+    line-height: 1.2;
+
+    margin-top: 30px;
+}
+
+
+/* Hero image */
+
+.hero-image {
+    width: 60%;
+    height: 420px;
+}
+
+
+/* ================= SECTION HEADINGS ================= */
+
+section h2 {
+    font-size: 20px;
+
+    display: inline-block;
+
+    margin: 0 0 25px;
+
+    border-bottom: 3px solid var(--blue);
+    padding-bottom: 5px;
+}
+
+
+/* ================= RATIONALE ================= */
+
+.rationale {
+    padding: 35px 4%;
+    background: white;
+}
+
+.rationale-layout {
+    display: flex;
+    gap: 30px;
+}
+
+
+/* Rationale text */
+
+.rationale-text {
+    width: 28%;
+
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+
+/* Four columns */
+
+.ideas {
+    width: 72%;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.idea {
+    text-align: center;
+
+    padding: 5px 20px;
+
+    border-left: 1px solid #ddd;
+}
+
+.icon {
+    color: var(--pink);
+    font-size: 38px;
+}
+
+.idea h3 {
+    color: var(--blue);
+    font-size: 14px;
+}
+
+.idea p {
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+
+/* ================= CREATIVE ================= */
+
+.creative {
+    background: var(--blue);
+    color: white;
+
+    min-height: 250px;
+
+    padding: 35px 4%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 50px;
+}
+
+.creative-text {
+    width: 27%;
+}
+
+.creative h2 {
+    color: white;
+    border-color: white;
+}
+
+.creative-text p {
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* Large typography */
+
+.typography-placeholder {
+    width: 73%;
+
+    font-size: 48px;
+    font-weight: bold;
+
+    color: var(--pink);
+
+    text-align: center;
+
+    padding: 50px 20px;
+
+    border: 3px solid var(--pink);
+}
+
+.typography-placeholder span {
+    color: var(--yellow);
+}
+
+
+/* ================= PROCESS ================= */
+
+.process {
+    padding: 35px 4%;
+}
+
+.process-container {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+.process-step {
+    flex: 1;
+}
+
+.process-image {
+    width: 100%;
+    height: 120px;
+
+    margin-bottom: 12px;
+}
+
+.process-step h3 {
+    font-size: 12px;
+    margin: 5px 0;
+}
+
+.process-step p {
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+.arrow {
+    color: var(--pink);
+    font-size: 25px;
+}
+
+
+/* ================= EXECUTION ================= */
+
+.execution {
+    background: var(--light-grey);
+
+    padding: 35px 4%;
+}
+
+.execution-container {
+    display: grid;
+
+    grid-template-columns: 2fr 1fr;
+
+    gap: 20px;
+}
+
+.execution-image {
+    height: 300px;
+}
+
+
+/* ================= DETAILS ================= */
+
+.details-section {
+    padding: 35px 4%;
+}
+
+.details-grid {
+    display: grid;
+
+    grid-template-columns: repeat(6, 1fr);
+
+    gap: 10px;
+}
+
+.detail-image {
+    height: 115px;
+}
+
+
+/* ================= IMPACT ================= */
+
+.impact {
+    padding: 35px 4%;
+}
+
+.impact > p {
+    max-width: 600px;
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.impact-content {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 25px;
+}
+
+.impact-content p {
+    margin: 5px 0;
+
+    font-size: 13px;
+}
+
+.final-message {
+    text-align: right;
+}
+
+.final-message h3 {
+    margin: 5px 0;
+
+    color: var(--pink);
+    font-size: 20px;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    background: var(--blue);
+
+    color: white;
+
+    padding: 15px 4%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 10px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+    /* Hero becomes one column */
+
+    .hero {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-content,
+    .hero-image {
+        width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+
+    /* Rationale */
+
+    .rationale-layout {
+        flex-direction: column;
+    }
+
+    .rationale-text,
+    .ideas {
+        width: 100%;
+    }
+
+    .ideas {
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    /* Creative */
+
+    .creative {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .creative-text,
+    .typography-placeholder {
+        width: 100%;
+    }
+
+
+    /* Process */
+
+    .process-container {
+        flex-direction: column;
+    }
+
+    .arrow {
+        transform: rotate(90deg);
+    }
+
+
+    /* Execution */
+
+    .execution-container {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Details */
+
+    .details-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    /* Footer */
+
+    footer {
+        flex-direction: column;
+    }
+}
