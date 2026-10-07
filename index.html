@@ -355,41 +355,94 @@
         const prevBtn = document.querySelector('.carousel-btn--prev');
         const nextBtn = document.querySelector('.carousel-btn--next');
 
-        let position  = 0;
-        let direction = 1;       // 1 = forward, -1 = backward
-        let paused    = false;
-        let speed     = 0.5;     // pixels per frame — lower = slower
+        let position   = 0;
+        let direction  = 1;       // 1 = forward, -1 = backward
+        let paused     = false;
+        const baseSpeed   = 0.5;  // normal speed
+        const fastSpeed   = 2.5;  // hold speed
+        let currentSpeed  = baseSpeed;
 
+        // ── rAF loop ──────────────────────────────────────────
         function tick() {
             if (!paused) {
-                position += speed * direction;
-
-                // Seamless loop — half the grid is the duplicate
+                position += currentSpeed * direction;
                 const half = grid.scrollWidth / 2;
-                if (position >= half)  position -= half;
-                if (position < 0)      position += half;
-
+                if (position >= half) position -= half;
+                if (position < 0)     position += half;
                 grid.style.transform = `translateX(${-position}px)`;
             }
             requestAnimationFrame(tick);
         }
 
-        // Pause on hover
+        // ── Hover pause ───────────────────────────────────────
         grid.addEventListener('mouseenter', () => paused = true);
         grid.addEventListener('mouseleave', () => paused = false);
 
-        // Buttons — pause briefly, flip direction, resume
-        prevBtn.addEventListener('click', () => {
+        // ── Button: click = pause + flip direction ────────────
+        function flipTo(dir) {
             paused = true;
-            direction = -1;
+            direction = dir;
             setTimeout(() => paused = false, 300);
+        }
+
+        prevBtn.addEventListener('click', () => flipTo(1));
+        nextBtn.addEventListener('click', () => flipTo(-1));
+
+        // ── Button: hold = speed up in that direction ─────────
+        let holdInterval = null;
+
+        function startHold(dir) {
+            // If already going that way, just speed up
+            // If opposite, flip first then speed up
+            paused    = false;
+            direction = dir;
+            currentSpeed = fastSpeed;
+        }
+
+        function endHold() {
+            currentSpeed = baseSpeed;
+        }
+
+        prevBtn.addEventListener('mousedown',  () => startHold(1));
+        nextBtn.addEventListener('mousedown',  () => startHold(-1));
+        prevBtn.addEventListener('touchstart', () => startHold(1),  { passive: true });
+        nextBtn.addEventListener('touchstart', () => startHold(-1), { passive: true });
+
+        document.addEventListener('mouseup',   endHold);
+        document.addEventListener('touchend',  endHold);
+
+        // ── Drag to scrub ─────────────────────────────────────
+        let isDragging  = false;
+        let dragStartX  = 0;
+        let lastDragX   = 0;
+
+        wrapper.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            paused     = true;
+            dragStartX = e.clientX;
+            lastDragX  = e.clientX;
+            wrapper.style.cursor = 'grabbing';
         });
 
-        nextBtn.addEventListener('click', () => {
-            paused = true;
-            direction = 1;
-            setTimeout(() => paused = false, 300);
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            const delta = lastDragX - e.clientX;
+            lastDragX   = e.clientX;
+            position   += delta;
+            const half  = grid.scrollWidth / 2;
+            if (position >= half) position -= half;
+            if (position < 0)    position += half;
+            grid.style.transform = `translateX(${-position}px)`;
         });
+
+        document.addEventListener('mouseup', () => {
+            if (!isDragging) return;
+            isDragging = false;
+            paused     = false;
+            wrapper.style.cursor = 'grab';
+        });
+
+        wrapper.style.cursor = 'grab';
 
         requestAnimationFrame(tick);
     </script>
