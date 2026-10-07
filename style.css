@@ -145,8 +145,8 @@ section h2 {
 
     padding-bottom: 10px;
 
-    /* Single curved underline — arc facing down (smiling curve) */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='12' viewBox='0 0 80 12'%3E%3Cpath d='M0 10 Q40 0 80 10' stroke='%23ed3d83' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    /* Single curved underline — shallow arc */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='8' viewBox='0 0 80 8'%3E%3Cpath d='M0 6 Q40 2 80 6' stroke='%23ed3d83' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: left bottom;
     background-size: 80px 10px;
@@ -237,8 +237,8 @@ section h2 {
     font-family: 'Caveat', cursive;
     color: white;
 
-    /* White single curved underline — arc facing down */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='12' viewBox='0 0 80 12'%3E%3Cpath d='M0 10 Q40 0 80 10' stroke='%23ffffff' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    /* White single curved underline — shallow arc */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='8' viewBox='0 0 80 8'%3E%3Cpath d='M0 6 Q40 2 80 6' stroke='%23ffffff' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
 }
 
 .creative-text p {
@@ -357,38 +357,74 @@ section h2 {
     padding: 35px 4%;
 }
 
-.impact > p {
-    max-width: 600px;
-
-    font-size: 13px;
-    line-height: 1.5;
-}
-
 .impact-content {
     display: flex;
-
-    justify-content: space-between;
-
-    margin-top: 25px;
+    align-items: flex-start;
+    gap: 40px;
 }
 
-.impact-content p {
-    margin: 5px 0;
+/* Left column */
 
+.impact-left {
+    width: 28%;
+}
+
+.impact-left h2 {
+    margin-bottom: 15px;
+}
+
+.impact-left p {
     font-size: 13px;
+    line-height: 1.5;
+    margin: 0;
 }
+
+/* Middle column */
 
 .final-message {
-    text-align: right;
+    width: 38%;
+    text-align: center;
 }
 
 .final-message h3 {
-    font-family: 'Caveat', cursive;
-    font-weight: 700;
-    margin: 5px 0;
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    margin: 4px 0;
+    color: var(--blue);
+    letter-spacing: 1px;
+}
 
+.pink-final {
+    color: var(--pink) !important;
+}
+
+/* Scratchy underline beneath the final message */
+
+.scratchy-line {
+    margin: 12px auto 0;
+    width: 180px;
+    height: 10px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='10' viewBox='0 0 180 10'%3E%3Cpath d='M0 7 C20 3 35 9 55 5 C75 1 90 8 110 4 C130 0 150 7 180 5' stroke='%2317213b' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 180px 10px;
+}
+
+/* Right column */
+
+.impact-list {
+    width: 28%;
+}
+
+.impact-list p {
+    margin: 6px 0;
+    font-size: 13px;
+}
+
+.asterisk {
     color: var(--pink);
-    font-size: 24px;
+    margin-right: 6px;
+    font-size: 14px;
 }
 
 
@@ -488,5 +524,17 @@ footer {
 
     footer {
         flex-direction: column;
+    }
+
+    /* Impact */
+
+    .impact-content {
+        flex-direction: column;
+    }
+
+    .impact-left,
+    .final-message,
+    .impact-list {
+        width: 100%;
     }
 }
