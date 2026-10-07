@@ -6,7 +6,7 @@
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', Arial, sans-serif;
     color: #17213b;
 }
 
@@ -93,6 +93,8 @@ body {
 }
 
 .hero h1 {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-weight: 800;
     font-size: 55px;
     line-height: 0.95;
 
@@ -100,8 +102,10 @@ body {
 }
 
 .pink-text {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
     color: #ff5c9c;
-    font-size: 21px;
+    font-size: 24px;
     line-height: 1.2;
 }
 
@@ -131,14 +135,23 @@ body {
 /* ================= SECTION HEADINGS ================= */
 
 section h2 {
-    font-size: 20px;
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 26px;
 
     display: inline-block;
 
-    margin: 0 0 25px;
+    margin: 0 0 30px;
 
-    border-bottom: 3px solid var(--blue);
-    padding-bottom: 5px;
+    padding-bottom: 10px;
+
+    /* Wavy hand-drawn underline — short, doesn't span the full width */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='10' viewBox='0 0 80 10'%3E%3Cpath d='M0 6 Q20 1 40 6 Q60 11 80 6' stroke='%23ed3d83' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: 80px 10px;
+
+    border-bottom: none;
 }
 
 
@@ -188,8 +201,10 @@ section h2 {
 }
 
 .idea h3 {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
     color: var(--blue);
-    font-size: 14px;
+    font-size: 18px;
 }
 
 .idea p {
@@ -219,8 +234,11 @@ section h2 {
 }
 
 .creative h2 {
+    font-family: 'Caveat', cursive;
     color: white;
-    border-color: white;
+
+    /* White wavy underline for dark background */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='10' viewBox='0 0 80 10'%3E%3Cpath d='M0 6 Q20 1 40 6 Q60 11 80 6' stroke='%23ffffff' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
 }
 
 .creative-text p {
@@ -276,7 +294,9 @@ section h2 {
 }
 
 .process-step h3 {
-    font-size: 12px;
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 16px;
     margin: 5px 0;
 }
 
@@ -363,10 +383,12 @@ section h2 {
 }
 
 .final-message h3 {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
     margin: 5px 0;
 
     color: var(--pink);
-    font-size: 20px;
+    font-size: 24px;
 }
 
 
