@@ -346,16 +346,26 @@ section h2 {
     padding: 35px 4%;
 }
 
+.details-scroll-wrapper {
+    overflow-x: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+.details-scroll-wrapper::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
 .details-grid {
-    display: grid;
-
-    grid-template-columns: repeat(6, 1fr);
-
+    display: flex;
     gap: 10px;
 }
 
 .detail-image {
-    height: 115px;
+    height: auto;
+    width: auto;
+    max-height: 200px;
+    flex-shrink: 0;
 }
 
 
@@ -452,6 +462,104 @@ footer {
     justify-content: space-between;
 
     font-size: 10px;
+}
+
+
+/* ================= HOVERS ================= */
+
+/* Detail images — zoom inside fixed card, box stays still */
+
+.detail-card {
+    overflow: hidden;
+    flex-shrink: 0;
+    border-radius: 4px;
+}
+
+.detail-image {
+    height: auto;
+    width: auto;
+    max-height: 200px;
+    display: block;
+    transition: transform 0.35s ease;
+}
+
+.detail-card:hover .detail-image {
+    transform: scale(1.08);
+}
+
+
+/* Rationale idea cards — subtle lift */
+
+.idea {
+    transition: transform 0.2s ease, background 0.2s ease;
+    border-radius: 4px;
+}
+
+.idea:hover {
+    transform: translateY(-4px);
+    background: #f9f9f9;
+}
+
+.idea:hover .icon {
+    transform: scale(1.15);
+    transition: transform 0.2s ease;
+}
+
+
+/* Process steps — lift */
+
+.process-step {
+    transition: transform 0.2s ease;
+}
+
+.process-step:hover {
+    transform: translateY(-4px);
+}
+
+.process-image {
+    transition: box-shadow 0.2s ease;
+}
+
+.process-step:hover .process-image {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Execution images — zoom on hover */
+
+.execution-image {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.execution-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Impact list items — pink on hover */
+
+.impact-list p {
+    transition: color 0.2s ease, transform 0.2s ease;
+    cursor: default;
+}
+
+.impact-list p:hover {
+    color: var(--pink);
+    transform: translateX(4px);
+}
+
+
+/* Creative typography image — zoom on hover */
+
+.typography-placeholder {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.typography-placeholder:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 
