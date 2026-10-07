@@ -38,6 +38,13 @@ body {
     justify-content: center;
 
     font-weight: bold;
+
+    object-fit: cover;
+}
+
+.logo-placeholder {
+    display: block;
+    object-fit: contain;
 }
 
 
@@ -63,6 +70,21 @@ body {
 .hero-content {
     width: 35%;
 }
+
+/* Logo space */
+
+.hero-logo {
+    margin-top: 25px;
+}
+
+.logo-placeholder {
+    width: 56px;
+    height: 56px;
+
+    display: block;
+    object-fit: contain;
+}
+
 
 .brand {
     font-size: 13px;
