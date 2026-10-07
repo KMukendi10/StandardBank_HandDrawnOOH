@@ -272,6 +272,15 @@
             <div class="details-scroll-wrapper" id="detailsCarousel">
                 <div class="details-grid">
 
+                    <!-- Original set -->
+                    <div class="detail-card"><img src="./Assets/Standard. Bank Ill Creative1.jpg" alt="Detail 1" class="detail-image"></div>
+                    <div class="detail-card"><img src="./Assets/standard-bank-happinext-graffiti.webp" alt="Detail 2" class="detail-image"></div>
+                    <div class="detail-card"><img src="./Assets/Illustartion1.png" alt="Detail 3" class="detail-image"></div>
+                    <div class="detail-card"><img src="./Assets/standard-bank-happinext-block.webp" alt="Detail 4" class="detail-image"></div>
+                    <div class="detail-card"><img src="./Assets/standard-bank-happinext-script.webp" alt="Detail 5" class="detail-image"></div>
+                    <div class="detail-card"><img src="./Assets/Screenshot 2026-10-07 121124.png" alt="Detail 6" class="detail-image"></div>
+
+                    <!-- Duplicate set for seamless loop -->
                     <div class="detail-card"><img src="./Assets/Standard. Bank Ill Creative1.jpg" alt="Detail 1" class="detail-image"></div>
                     <div class="detail-card"><img src="./Assets/standard-bank-happinext-graffiti.webp" alt="Detail 2" class="detail-image"></div>
                     <div class="detail-card"><img src="./Assets/Illustartion1.png" alt="Detail 3" class="detail-image"></div>
@@ -341,17 +350,23 @@
 
     <!-- ================= CAROUSEL SCRIPT ================= -->
     <script>
-        const carousel = document.getElementById('detailsCarousel');
-        const prevBtn  = document.querySelector('.carousel-btn--prev');
-        const nextBtn  = document.querySelector('.carousel-btn--next');
-        const scrollAmount = 320;
+        const grid    = document.querySelector('.details-grid');
+        const prevBtn = document.querySelector('.carousel-btn--prev');
+        const nextBtn = document.querySelector('.carousel-btn--next');
 
+        // Buttons temporarily speed up in that direction
         nextBtn.addEventListener('click', () => {
-            carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            grid.style.animationDuration = '6s';
+            setTimeout(() => grid.style.animationDuration = '20s', 800);
         });
 
         prevBtn.addEventListener('click', () => {
-            carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            grid.style.animationDirection = 'reverse';
+            grid.style.animationDuration  = '6s';
+            setTimeout(() => {
+                grid.style.animationDirection = 'normal';
+                grid.style.animationDuration  = '20s';
+            }, 800);
         });
     </script>
 
