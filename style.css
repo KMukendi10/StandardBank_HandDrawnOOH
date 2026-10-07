@@ -18,7 +18,7 @@ body {
     --dark-blue: #052c5d;
     --pink: #ed3d83;
     --yellow: #f5c400;
-    --light-grey: #f4f4f4;
+    --light-grey: #ededed;
 }
 
 
@@ -65,10 +65,10 @@ section h3,
 /* ================= HERO ================= */
 
 .hero {
-    background: var(--blue);
+    background: var(--blue) url('./Assets/HeroBackground.png') center center / cover no-repeat;
     color: white;
 
-    min-height: 480px;
+    min-height: 580px;
     padding: 45px 4%;
 
     display: flex;
@@ -178,6 +178,7 @@ section h2 {
 
 .rationale-layout {
     display: flex;
+    align-items: stretch;
     gap: 30px;
 }
 
@@ -204,25 +205,27 @@ section h2 {
 .idea {
     text-align: center;
 
-    padding: 5px 20px;
+    padding: 0 20px;
 
     border-left: 1px solid #ddd;
 }
 
 .icon {
     color: var(--pink);
-    font-size: 38px;
+    font-size: 62px;
+    margin: 0;
+    line-height: 1;
 }
 
 .idea h3 {
     font-family: 'Caveat', cursive;
     font-weight: 700;
     color: var(--blue);
-    font-size: 18px;
+    font-size: 24px;
 }
 
 .idea p {
-    font-size: 11px;
+    font-size: 15px;
     line-height: 1.4;
 }
 
@@ -265,21 +268,12 @@ section h2 {
 
 .typography-placeholder {
     width: 73%;
+    height: 200px;
 
-    font-size: 48px;
-    font-weight: bold;
-
-    color: white;
-
-    text-align: center;
-
-    padding: 50px 20px;
+    display: block;
+    object-fit: cover;
 
     border: 3px solid white;
-}
-
-.typography-placeholder span {
-    color: var(--yellow);
 }
 
 
@@ -336,9 +330,9 @@ section h2 {
 .execution-container {
     display: grid;
 
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 3fr 2fr;
 
-    gap: 20px;
+    gap: 8px;
 }
 
 .execution-image {
