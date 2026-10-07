@@ -395,13 +395,10 @@ section h2 {
     display: flex;
     gap: 10px;
     width: max-content;
-    animation: marquee 20s linear infinite;
+    animation: none;
 }
 
-/* Pause auto-scroll on hover */
-.details-grid:hover {
-    animation-play-state: paused;
-}
+/* Pause auto-scroll on hover handled by JS */
 
 @keyframes marquee {
     0%   { transform: translateX(0); }

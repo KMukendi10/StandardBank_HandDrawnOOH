@@ -351,23 +351,47 @@
     <!-- ================= CAROUSEL SCRIPT ================= -->
     <script>
         const grid    = document.querySelector('.details-grid');
+        const wrapper = document.getElementById('detailsCarousel');
         const prevBtn = document.querySelector('.carousel-btn--prev');
         const nextBtn = document.querySelector('.carousel-btn--next');
 
-        // Buttons temporarily speed up in that direction
-        nextBtn.addEventListener('click', () => {
-            grid.style.animationDuration = '6s';
-            setTimeout(() => grid.style.animationDuration = '20s', 800);
+        let position  = 0;
+        let direction = 1;       // 1 = forward, -1 = backward
+        let paused    = false;
+        let speed     = 0.5;     // pixels per frame — lower = slower
+
+        function tick() {
+            if (!paused) {
+                position += speed * direction;
+
+                // Seamless loop — half the grid is the duplicate
+                const half = grid.scrollWidth / 2;
+                if (position >= half)  position -= half;
+                if (position < 0)      position += half;
+
+                grid.style.transform = `translateX(${-position}px)`;
+            }
+            requestAnimationFrame(tick);
+        }
+
+        // Pause on hover
+        grid.addEventListener('mouseenter', () => paused = true);
+        grid.addEventListener('mouseleave', () => paused = false);
+
+        // Buttons — pause briefly, flip direction, resume
+        prevBtn.addEventListener('click', () => {
+            paused = true;
+            direction = -1;
+            setTimeout(() => paused = false, 300);
         });
 
-        prevBtn.addEventListener('click', () => {
-            grid.style.animationDirection = 'reverse';
-            grid.style.animationDuration  = '6s';
-            setTimeout(() => {
-                grid.style.animationDirection = 'normal';
-                grid.style.animationDuration  = '20s';
-            }, 800);
+        nextBtn.addEventListener('click', () => {
+            paused = true;
+            direction = 1;
+            setTimeout(() => paused = false, 300);
         });
+
+        requestAnimationFrame(tick);
     </script>
 
 </body>
