@@ -346,6 +346,40 @@ section h2 {
     padding: 35px 4%;
 }
 
+.carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.carousel-btn {
+    flex-shrink: 0;
+
+    background: var(--blue);
+    color: white;
+    border: none;
+    border-radius: 50%;
+
+    width: 38px;
+    height: 38px;
+
+    font-size: 18px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: background 0.2s ease, transform 0.2s ease;
+    z-index: 1;
+}
+
+.carousel-btn:hover {
+    background: var(--pink);
+    transform: scale(1.1);
+}
+
 .details-scroll-wrapper {
     overflow-x: scroll;
     scrollbar-width: none; /* Firefox */

@@ -264,17 +264,27 @@
 
         <h2>DETAILS & CLOSER LOOK</h2>
 
-        <div class="details-scroll-wrapper">
-            <div class="details-grid">
+        <div class="carousel-wrapper">
 
-                <div class="detail-card"><img src="./Assets/Standard. Bank Ill Creative1.jpg" alt="Detail 1" class="detail-image"></div>
-                <div class="detail-card"><img src="./Assets/standard-bank-happinext-graffiti.webp" alt="Detail 2" class="detail-image"></div>
-                <div class="detail-card"><img src="./Assets/Illustartion1.png" alt="Detail 3" class="detail-image"></div>
-                <div class="detail-card"><img src="./Assets/standard-bank-happinext-block.webp" alt="Detail 4" class="detail-image"></div>
-                <div class="detail-card"><img src="./Assets/standard-bank-happinext-script.webp" alt="Detail 5" class="detail-image"></div>
-                <div class="detail-card"><img src="./Assets/Screenshot 2026-10-07 121124.png" alt="Detail 6" class="detail-image"></div>
+            <!-- Prev button -->
+            <button class="carousel-btn carousel-btn--prev" aria-label="Previous">&#8592;</button>
 
+            <div class="details-scroll-wrapper" id="detailsCarousel">
+                <div class="details-grid">
+
+                    <div class="detail-card"><img src="./Assets/Standard. Bank Ill Creative1.jpg" alt="Detail 1" class="detail-image"></div>
+                    <div class="detail-card"><img src="./Assets/standard-bank-happinext-graffiti.webp" alt="Detail 2" class="detail-image"></div>
+                    <div class="detail-card"><img src="./Assets/Illustartion1.png" alt="Detail 3" class="detail-image"></div>
+                    <div class="detail-card"><img src="./Assets/standard-bank-happinext-block.webp" alt="Detail 4" class="detail-image"></div>
+                    <div class="detail-card"><img src="./Assets/standard-bank-happinext-script.webp" alt="Detail 5" class="detail-image"></div>
+                    <div class="detail-card"><img src="./Assets/Screenshot 2026-10-07 121124.png" alt="Detail 6" class="detail-image"></div>
+
+                </div>
             </div>
+
+            <!-- Next button -->
+            <button class="carousel-btn carousel-btn--next" aria-label="Next">&#8594;</button>
+
         </div>
 
     </section>
@@ -328,6 +338,22 @@
         </p>
 
     </footer>
+
+    <!-- ================= CAROUSEL SCRIPT ================= -->
+    <script>
+        const carousel = document.getElementById('detailsCarousel');
+        const prevBtn  = document.querySelector('.carousel-btn--prev');
+        const nextBtn  = document.querySelector('.carousel-btn--next');
+        const scrollAmount = 320;
+
+        nextBtn.addEventListener('click', () => {
+            carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        });
+
+        prevBtn.addEventListener('click', () => {
+            carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        });
+    </script>
 
 </body>
 </html>
